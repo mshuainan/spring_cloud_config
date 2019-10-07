@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+
+server:
+  port: 7001 # 注册中心占用7001端口，冒号后面必须有空格
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud_config_eurake_client
+
+eureka:
+  instance:
+    appname: eurake7001.com # 冒号后面必须有空格
+  client:
+    register-with-eureka: false # 当前的eureka-server自己不注册进服务列表
+    fetch-registry: false # 不通过eureka获取注册信息
+    service-url: http://eutake7001.com:7001/eurake/
+
+---
+
+server:
+  port: 7001 # 注册中心占用7001端口，冒号后面必须有空格
+
+spring:
+  profiles: test
+  application:
+    name: springcloud_config_eurake_client
+
+eureka:
+  instance:
+    appname: eurake7001.com # 冒号后面必须有空格
+  client:
+    register-with-eureka: false # 当前的eureka-server自己不注册进服务列表
+    fetch-registry: false # 不通过eureka获取注册信息
+    service-url: http://eutake7001.com:7001/eurake/
